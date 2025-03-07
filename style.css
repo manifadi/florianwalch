@@ -104,6 +104,10 @@ header .container {
     font-size: 1.2rem;
 }
 
+.logo img {
+    max-height: 30px;
+}
+
 .menu-toggle {
     display: flex;
     align-items: center;
@@ -202,6 +206,61 @@ header .container {
     font-size: var(--p-small-font-size);
 }
 
+/* Neue, kompaktere Über-mich-Sektion */
+.about-compact {
+    max-width: var(--container-width);
+    margin: 0 auto var(--spacing-lg);
+    padding: var(--spacing-md) 0;
+}
+
+.about-compact-wrapper {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    background-color: var(--light-gray);
+    border-radius: var(--border-radius-md);
+    padding: var(--spacing-md);
+}
+
+.about-compact-image {
+    flex: 0 0 180px;
+}
+
+.about-compact-image img {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--white);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.about-compact-content {
+    flex: 1;
+}
+
+.about-compact-content h2 {
+    margin-bottom: var(--spacing-xs);
+    color: var(--main-color);
+}
+
+.about-compact-content p {
+    margin-bottom: 0;
+    font-size: calc(var(--p-font-size) * 0.95);
+}
+
+/* Responsive Design für die kompakte Über-mich-Sektion */
+@media (max-width: 768px) {
+    .about-compact-wrapper {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .about-compact-image {
+        margin-bottom: var(--spacing-sm);
+    }
+}
+
 /* FAQ Section */
 .faq {
     max-width: var(--container-width);
@@ -256,36 +315,6 @@ header .container {
 .accordion-content {
     padding: 0 var(--spacing-md) var(--spacing-md);
     display: none;
-}
-
-/* About Section */
-.about {
-    max-width: var(--container-width);
-    margin: 0 auto var(--spacing-xl);
-}
-
-.about-wrapper {
-    display: flex;
-    gap: var(--spacing-lg);
-    align-items: flex-start; /* Ausrichtung oben */
-}
-
-.about-image {
-    flex: 0.75;
-    aspect-ratio: 1/1;
-    overflow: hidden;
-}
-
-.about-image img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: var(--border-radius-md);
-}
-
-.about-content {
-    flex: 1;
-    padding-top: 0; /* Kein oberer Abstand, um Text mit Bild oben auszurichten */
 }
 
 /* Contact Section */
@@ -389,6 +418,103 @@ textarea {
     border-radius: var(--border-radius-sm);
     font-weight: 600;
     width: 100%;
+}
+
+/* Footer Styles */
+.footer {
+    background-color: var(--main-color);
+    color: var(--white);
+    padding: var(--spacing-lg) 0 var(--spacing-md);
+    margin-top: var(--spacing-xl);
+    border-radius: var(--border-radius-lg) var(--border-radius-lg) 0 0;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: var(--spacing-md);
+}
+
+.footer-logo {
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-bottom: var(--spacing-md);
+}
+
+.footer-logo img{
+    max-height: 40px;
+}
+
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.footer-legal {
+    display: flex;
+    gap: var(--spacing-md);
+}
+
+.footer-legal a {
+    color: var(--white);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-legal a:hover {
+    color: var(--accent-color);
+}
+
+.footer-social {
+    display: flex;
+    gap: var(--spacing-md);
+}
+
+.footer-social a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    color: var(--white);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.footer-social a:hover {
+    background-color: var(--accent-color);
+    transform: translateY(-3px);
+}
+
+.footer-copyright {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: var(--spacing-md);
+    text-align: center;
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+
+/* Responsive Footer */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .footer-links {
+        align-items: center;
+    }
+    
+    .footer-legal {
+        flex-direction: column;
+        gap: var(--spacing-sm);
+    }
 }
 
 /* Responsive Design */

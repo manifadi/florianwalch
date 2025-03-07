@@ -1,0 +1,50 @@
+/* Aktualisierte Menü-Button Styles */
+.menu-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: none;
+    border: none;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.menu-btn p {
+    font-weight: 500;
+}
+
+.menu-icon {
+    transform: rotate(90deg);
+    font-weight: bold;
+}
+
+/* Kontaktdaten mit Icons */
+.contact-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: var(--spacing-sm);
+}
+
+.contact-item i {
+    margin-right: 10px;
+    color: var(--accent-color);
+    width: 20px;
+    text-align: center;
+}
+
+/* Aktualisierte Kontakt-Sektion für besseres Größenverhältnis */
+.contact-info {
+    flex: 0.7; /* Reduziert von 1 auf 0.7 */
+    padding: var(--spacing-xl);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.contact-form-wrapper {
+    flex: 1.3; /* Erhöht von 1 auf 1.3 */
+    padding: var(--spacing-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

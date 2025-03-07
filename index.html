@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finanzberatung</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ephesis&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">FINANCE LOGO HERE</div>
+            <div class="menu-toggle">
+                <span class="menu-text">MENU</span>
+                <div class="hamburger">
+                    <span></span>
+                    <span class="short"></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>FINANZIELLE KLARHEIT.<br>KOSTENLOS.<br>FÜR DICH!</h1>
+            <p>Schluss mit dem Finanz-Wirrwarr. Wir analysieren, optimieren und zeigen dir, wie du mehr aus deinem Geld machst – unverbindlich und transparent.</p>
+            <button class="cta-button">Kostenloses Gespräch sichern!</button>
+            
+            <div class="features">
+                <div class="feature">
+                    <p class="bold">Erfahre echte Professionalität</p>
+                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut.</p>
+                </div>
+                <div class="feature">
+                    <p class="bold">24/7 Erreichbar</p>
+                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut.</p>
+                </div>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="./assets/hero-image.jpg" alt="Beratungsgespräch">
+        </div>
+    </section>
+
+    <section class="about">
+        <div class="container">
+            <div class="about-wrapper">
+                <div class="about-image">
+                    <img src="https://placehold.co/400x500" alt="Berater Portrait">
+                </div>
+                <div class="about-content">
+                    <h2>Freut mich dich kennen zu lernen!</h2>
+                    <p>Ich bin Florian, wohne in Wels usw. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq">
+        <div class="container">
+            <div class="faq-header">
+                <div class="faq-title">
+                    <h3>FAQ</h3>
+                    <h2>Alles, was du über den Ablauf wissen musst</h2>
+                </div>
+            </div>
+            
+            <div class="accordion">
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        Das erste persönliche Gespräch
+                        <span class="accordion-icon">&#x276F;</span>
+                    </button>
+                    <div class="accordion-content">
+                        <p>Inhalt des ersten Gesprächs...</p>
+                    </div>
+                </div>
+                
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        So werde ich deine Situation analysieren
+                        <span class="accordion-icon">&#x276F;</span>
+                    </button>
+                    <div class="accordion-content">
+                        <p>Inhalt zur Situationsanalyse...</p>
+                    </div>
+                </div>
+                
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        Das perfekte Konzept, nur für dich
+                        <span class="accordion-icon">&#x276F;</span>
+                    </button>
+                    <div class="accordion-content">
+                        <p>Inhalt zum Konzept...</p>
+                    </div>
+                </div>
+                
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        Der freiwillige abschließende Schritt
+                        <span class="accordion-icon">&#x276F;</span>
+                    </button>
+                    <div class="accordion-content">
+                        <p>Inhalt zum abschließenden Schritt...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact">
+        <div class="contact-info">
+            <h2>Buche dir jetzt deinen kostenlosen Termin</h2>
+            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut.</p>
+            
+            <div class="contact-details">
+                <p class="contact-item"><i class="fas fa-phone"></i> +43 650 9999790</p>
+                <p class="contact-item"><i class="fas fa-envelope"></i> florian@example.at</p>
+                <p class="contact-item"><i class="fas fa-map-marker-alt"></i> Adresse</p>
+            </div>
+        </div>
+        
+        <div class="contact-form-wrapper">
+            <form class="contact-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="vorname">Vorname</label>
+                        <input type="text" id="vorname" placeholder="Max">
+                    </div>
+                    <div class="form-group">
+                        <label for="nachname">Nachname</label>
+                        <input type="text" id="nachname" placeholder="Mustermann">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">E-Mail</label>
+                    <input type="email" id="email" placeholder="max.mustermann@example.com">
+                </div>
+                
+                <div class="form-group">
+                    <label for="nachricht">Nachricht</label>
+                    <textarea id="nachricht" placeholder="Schreiben Sie uns..."></textarea>
+                </div>
+                
+                <button type="submit" class="submit-button">Sende mir eine Nachricht</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <!-- Footer-Inhalte hier -->
+    </footer>
+</body>
+</html>

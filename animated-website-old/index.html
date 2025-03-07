@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finanzberatung - Finanzielle Klarheit für Dich</title>
+    <link rel="stylesheet" href="./styles/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="logo">FINANCE LOGO HERE</div>
+            <div class="menu-toggle">
+                <span class="menu-text">MENU</span>
+                <div class="hamburger">
+                    <span></span>
+                    <span class="short"></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#ablauf">Ablauf</a></li>
+            <li><a href="#about">Über mich</a></li>
+            <li><a href="#contact">Kontakt</a></li>
+        </ul>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="parallax-bg"></div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <div class="hero-animation">
+                        <div class="text-slide" id="slide1">FINANZIELLE KLARHEIT.</div>
+                        <div class="text-slide" id="slide2">KOSTENLOS.</div>
+                        <div class="text-slide" id="slide3">FÜR DICH!</div>
+                    </div>
+                    <p class="hero-description">Schluss mit dem Finanz-Wirrwarr. Wir analysieren, optimieren und zeigen dir, wie du mehr aus deinem Geld machst – unverbindlich und transparent.</p>
+                    <a href="#contact" class="cta-button">Kostenloses Gespräch sichern!</a>
+                </div>
+                <div class="hero-image">
+                    <img src="./assets/3d-illustration-wallet.png" alt="Finanzberatung Illustration">
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
+            <div class="arrow-down">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ablauf Section - Optimiert für Intersection Observer -->
+    <section id="ablauf" class="ablauf-section">
+        <div class="ablauf-scroll-wrapper">
+            <div class="ablauf-sticky-container">
+                <div class="parallax-element circle-1"></div>
+                <div class="parallax-element circle-2"></div>
+                <div class="parallax-element triangle"></div>
+                <h2 class="section-title parallax-text">Wie komme ich zu den Vorteilen?</h2>
+                <div class="container">
+                    <div class="vertical-steps-container">
+                        <div class="steps-sidebar">
+                            <div class="vertical-steps-indicator">
+                                <div class="vertical-step-line"></div>
+                                <div class="vertical-step-dot" data-step="1">
+                                    <div class="dot-content">
+                                        <i class="fas fa-check"></i>
+                                        <span>1</span>
+                                    </div>
+                                    <div class="step-label">Erstgespräch</div>
+                                </div>
+                                <div class="vertical-step-dot" data-step="2">
+                                    <div class="dot-content">
+                                        <i class="fas fa-check"></i>
+                                        <span>2</span>
+                                    </div>
+                                    <div class="step-label">Analyse</div>
+                                </div>
+                                <div class="vertical-step-dot" data-step="3">
+                                    <div class="dot-content">
+                                        <i class="fas fa-check"></i>
+                                        <span>3</span>
+                                    </div>
+                                    <div class="step-label">Umsetzung</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="steps-content-wrapper">
+                            <div class="steps-content">
+                                <div class="step-panel" data-step="1">
+                                    <div class="step-panel-content">
+                                        <h3>Erstgespräch</h3>
+                                        <p>In einem unverbindlichen Erstgespräch lernen wir uns kennen und besprechen Ihre aktuelle finanzielle Situation. Wir hören aufmerksam zu, um Ihre Ziele und Wünsche zu verstehen. Dieser Schritt bildet die Grundlage für eine maßgeschneiderte Finanzstrategie, die perfekt zu Ihren Bedürfnissen passt.</p>
+                                    </div>
+                                </div>
+                                <div class="step-panel" data-step="2">
+                                    <div class="step-panel-content">
+                                        <h3>Analyse</h3>
+                                        <p>Nach dem Erstgespräch analysieren wir Ihre finanzielle Situation im Detail. Wir prüfen bestehende Verträge, identifizieren Optimierungspotenziale und entwickeln eine klare Strategie. Unser Ziel ist es, Ihnen einen transparenten Überblick zu verschaffen und konkrete Handlungsempfehlungen zu geben.</p>
+                                    </div>
+                                </div>
+                                <div class="step-panel" data-step="3">
+                                    <div class="step-panel-content">
+                                        <h3>Umsetzung</h3>
+                                        <p>Gemeinsam setzen wir die erarbeitete Strategie um. Wir begleiten Sie bei jedem Schritt, kümmern uns um alle notwendigen Formalitäten und stehen Ihnen jederzeit für Fragen zur Verfügung. Nach der Umsetzung bleiben wir an Ihrer Seite und passen Ihre Finanzstrategie regelmäßig an Ihre Lebenssituation an.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Wichtig: Reihenfolge der Skripte beachten -->
+    <script src="scripts/script.js"></script>
+    <script src="scripts/navigation.js"></script>
+    <script src="scripts/scroll-effects.js"></script>
+    <script src="scripts/start-hero-animation.js"></script>
+    <script src="scripts/ablauf-animation.js"></script>
+</body>
+</html>

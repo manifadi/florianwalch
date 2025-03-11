@@ -1,54 +1,56 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Element-Referenzen
-    const menuBtn = document.querySelector('.menu-toggle');
+    // Mobile Menu Toggle
+    const menuToggle = document.querySelector('.menu-toggle');
     const mobileMenu = document.getElementById('mobileMenu');
-    const menuLinks = document.querySelectorAll('.menu-link');
+    const body = document.body;
     
-    // Toggle Menu Funktion - NUR durch den Menü-Button
-    function toggleMenu() {
-        menuBtn.classList.toggle('active');
+    menuToggle.addEventListener('click', function() {
+        menuToggle.classList.toggle('active');
         mobileMenu.classList.toggle('active');
-        document.body.classList.toggle('no-scroll');
-    }
+        body.classList.toggle('no-scroll');
+    });
     
-    // Event-Listener NUR für den Menü-Button
-    menuBtn.addEventListener('click', toggleMenu);
-    
-    // Event-Listener für Menü-Links
-    menuLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            // Menü schließen
-            menuBtn.classList.remove('active');
-            mobileMenu.classList.remove('active');
-            document.body.classList.remove('no-scroll');
+    // Smooth Scrolling für alle internen Links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
             
-            // Smooth Scrolling für Anker-Links
-            const href = this.getAttribute('href');
-            if (href.startsWith('#') && href !== '#') {
-                e.preventDefault();
-                const targetElement = document.querySelector(href);
+            // Ziel-ID aus dem href-Attribut extrahieren
+            const targetId = this.getAttribute('href');
+            
+            // Wenn es ein gültiges Ziel gibt
+            if (targetId !== '#') {
+                const targetElement = document.querySelector(targetId);
                 
                 if (targetElement) {
-                    // Scroll zur Zielposition mit Offset für Header
-                    const headerHeight = 80; // Anpassen an tatsächliche Header-Höhe
-                    const targetPosition = targetElement.getBoundingClientRect().top + 
-                                         window.pageYOffset - headerHeight;
-                    
-                    window.scrollTo({
-                        top: targetPosition,
-                        behavior: 'smooth'
+                    // Smooth Scroll zum Ziel
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
                     });
+                    
+                    // Mobile Menü schließen, wenn es geöffnet ist
+                    if (mobileMenu.classList.contains('active')) {
+                        menuToggle.classList.remove('active');
+                        mobileMenu.classList.remove('active');
+                        body.classList.remove('no-scroll');
+                    }
                 }
             }
         });
     });
     
-    // Tastatur-Navigation: ESC-Taste schließt Menü
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
-            menuBtn.classList.remove('active');
-            mobileMenu.classList.remove('active');
-            document.body.classList.remove('no-scroll');
-        }
-    });
+    // CTA-Button Scroll zum Kontaktformular
+    const ctaButton = document.querySelector('.cta-button');
+    if (ctaButton) {
+        ctaButton.addEventListener('click', function() {
+            const contactSection = document.getElementById('contact');
+            if (contactSection) {
+                contactSection.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    }
 });

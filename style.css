@@ -1,6 +1,4 @@
-/* Root-Variablen für konsistentes Design */
 :root {
-    /* Farben */
     --main-color: #162E4D;
     --accent-color: #D09B43;
     --black: #151515;
@@ -8,39 +6,37 @@
     --light-gray: #e8e8e8;
     --main-color-rgb: 22, 46, 77;
     
-    /* Typografie */
     --h1-font-size: clamp(32px, 3.45dvw, 48px);
     --h2-font-size: clamp(16px, 2.2dvw, 26px);
     --h3-font-size: clamp(12px, 1.5dvw, 17px);
     --p-font-size: clamp(13px, 1.5dvw, 17px);
     --p-small-font-size: clamp(10px, 1.2dvw, 14px);
     
-    /* Abstände */
     --spacing-xs: 0.5rem;
     --spacing-sm: 1rem;
     --spacing-md: 2rem;
     --spacing-lg: 3rem;
     --spacing-xl: 5rem;
     
-    /* Radius */
     --border-radius-sm: .4em;
     --border-radius-md: 1.2em;
     --border-radius-lg: 1.8em;
     
-    /* Container */
     --container-width: 1400px;
-    --section-padding: 5rem;
-    
     --accordion-timing: 0.3s;
     --easing-smooth: cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-/* Grundlegende Resets und Styles */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Montserrat', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
 }
 
 body {
@@ -49,20 +45,14 @@ body {
     background-color: var(--white);
 }
 
-/* No scroll class */
 body.no-scroll {
     overflow: hidden;
-}
-
-.padding-container{
-    /*padding: 0 var(--spacing-md);*/
 }
 
 .container {
     max-width: var(--container-width);
     margin: 0 auto;
     padding: 0 var(--spacing-md);
-    width: calc();
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -83,33 +73,37 @@ p {
     font-weight: 300;
 }
 
-p.bold{
+p.bold {
     font-weight: 600;
 }
 
 img {
-    max-width: 100%;
-    height: auto;
+        max-width: 100%;
+        height: auto;
     display: block;
-}
-
+    }
+    
 button {
     cursor: pointer;
     font-family: inherit;
-}
-
-/* Header Styles */
+    }
+    
+a:focus, button:focus {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 2px;
+    }
+    
 header {
     padding: var(--spacing-md) 0;
     background-color: var(--white);
     z-index: 10001;
-}
-
+    }
+    
 header .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
+    }
 
 .logo {
     font-weight: bold;
@@ -151,16 +145,16 @@ header .container {
     border-radius: 2em;
 }
 
-.hamburger span.short{
+.hamburger span.short {
     width: 70%;
 }
 
-.hamburger.active span.short{
+.hamburger.active span.short {
     display: none;
 }
 
 .menu-toggle.active .hamburger span:first-child {
-    transform:  translate(0%, 410%) rotate(45deg);
+    transform: translate(0%, 410%) rotate(45deg);
 }
 
 .menu-toggle.active .hamburger span:nth-child(2) {
@@ -171,22 +165,21 @@ header .container {
     transform: translate(0%, -500%) rotate(-45deg);
 }
 
-/* Mobile Menu Styles - Angepasst an Screenshot */
 .mobile-menu {
     position: fixed;
     top: 0;
-    left: 105vw; /* Startet außerhalb des Bildschirms */
-    width: 100vw; /* Nimmt nur die linke Hälfte ein */
+    left: 105vw;
+    width: 100vw;
     height: 100vh;
     background-color: var(--white);
     z-index: 1001;
     transition: left 0.3s var(--easing-smooth);
     box-shadow: 5px 0 15px rgba(0, 0, 0, 0.1);
-    padding: 120px 40px 40px; /* Platz für Header oben */
+    padding: 120px 40px 40px;
 }
 
 .mobile-menu.active {
-    left: 0; /* Schiebt sich von links ins Bild */
+    left: 0;
 }
 
 .mobile-nav ul {
@@ -195,7 +188,7 @@ header .container {
     margin: 0;
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-xl); /* Größerer Abstand zwischen Menüpunkten */
+    gap: var(--spacing-xl);
     text-align: center;
 }
 
@@ -211,23 +204,21 @@ header .container {
     display: block;
     padding: var(--spacing-xs) 0;
     transition: color 0.3s var(--easing-smooth);
-}
+    }
 
 .mobile-nav a:hover {
     color: var(--accent-color);
 }
 
-/* Hamburger Menu Button Styles */
 .menu-btn {
     cursor: pointer;
     display: flex;
     align-items: center;
     gap: 10px;
-    z-index: 1001; /* Höherer z-index als das Menü */
-    position: relative; /* Damit der z-index wirkt */
+    z-index: 1001;
+    position: relative;
 }
 
-/* Hero Section */
 .hero {
     background-color: var(--main-color);
     color: var(--white);
@@ -287,11 +278,10 @@ header .container {
     flex: 1;
 }
 
-.feature p{
+.feature p {
     font-size: var(--p-small-font-size);
 }
 
-/* Neue, kompaktere Über-mich-Sektion */
 .about-compact {
     max-width: var(--container-width);
     margin: 0 auto var(--spacing-lg);
@@ -334,25 +324,12 @@ header .container {
     font-size: calc(var(--p-font-size) * 0.95);
 }
 
-/* Responsive Design für die kompakte Über-mich-Sektion */
-@media (max-width: 768px) {
-    .about-compact-wrapper {
-        flex-direction: column;
-        text-align: center;
-    }
-    
-    .about-compact-image {
-        margin-bottom: var(--spacing-sm);
-    }
-}
-
-/* FAQ Section */
 .faq {
     max-width: var(--container-width);
     margin: 0 auto var(--spacing-xl);
 }
 
-.faq .container{
+.faq .container {
     display: flex;
     justify-content: space-between;
     gap: var(--spacing-md);
@@ -364,11 +341,10 @@ header .container {
 }
 
 .faq h3 {
-    font-size: var(--h2-size);
+    font-size: var(--h3-font-size);
     margin-bottom: 0;
 }
 
-/* Akkordeon-Styles - Alpine.js Version */
 .accordion {
     display: flex;
     flex-direction: column;
@@ -436,7 +412,6 @@ header .container {
     transition-delay: calc(var(--accordion-timing) * 0.2);
 }
 
-/* Innere Inhalte des Akkordeons */
 .accordion-content p {
     margin: 0;
     line-height: 1.6;
@@ -446,28 +421,15 @@ header .container {
     margin-top: var(--spacing-sm);
 }
 
-/* Hover-Effekte für bessere UX */
 .accordion-header:hover {
     background-color: rgba(0, 0, 0, 0.03);
 }
 
 .accordion-header:focus {
     outline: none;
-    box-shadow: 0 0 0 2px rgba(var(--main-color-rgb, 22, 46, 77), 0.3);
+    box-shadow: 0 0 0 2px rgba(var(--main-color-rgb), 0.3);
 }
 
-/* Akkordeon-Responsive-Anpassungen */
-@media (max-width: 768px) {
-    .accordion-header {
-        padding: var(--spacing-sm);
-    }
-    
-    .accordion-content-inner {
-        padding: var(--spacing-sm);
-    }
-}
-
-/* Contact Section */
 .contact {
     background-color: var(--main-color);
     color: var(--white);
@@ -492,7 +454,6 @@ header .container {
     margin-top: var(--spacing-lg);
 }
 
-/* Kontaktdaten mit Icons */
 .contact-item {
     display: flex;
     align-items: center;
@@ -535,7 +496,7 @@ header .container {
 label {
     display: block;
     margin-bottom: var(--spacing-xs);
-    font-size: var(--small-size);
+    font-size: var(--p-small-font-size);
 }
 
 input, textarea {
@@ -550,10 +511,6 @@ input, textarea {
 input::placeholder, textarea::placeholder {
     color: var(--white);
     opacity: .5;
-}
-
-input:focus, textarea:focus {
-    /* change color to blue */
 }
 
 textarea {
@@ -571,7 +528,6 @@ textarea {
     width: 100%;
 }
 
-/* Footer Styles */
 .footer {
     background-color: var(--main-color);
     color: var(--white);
@@ -648,9 +604,58 @@ textarea {
     font-size: 0.9rem;
     opacity: 0.7;
 }
+/* Responsive Design - Desktop First */
+@media (max-width: 1200px) {
+    /* FAQ/Accordion */
+    .accordion {
+        margin-left: 0;
+        transform: translateY(0);
+    }
+    
+    .faq-header {
+        flex-direction: column;
+    }
+    
+    .faq-title {
+        max-width: 100%;
+    }
+}
 
-/* Responsive Footer */
 @media (max-width: 768px) {
+    /* Typografie für mobile Geräte */
+    :root {
+        --h1-size: 2.2rem;
+        --h2-size: 1.8rem;
+        --h3-size: 1.3rem;
+    }
+    
+    /* Sektionen-Padding */
+    .hero-content, 
+    .contact-info, 
+    .contact-form {
+        padding: var(--spacing-lg);
+    }
+    
+    /* Über mich Sektion */
+    .about-compact-wrapper {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .about-compact-image {
+        margin-bottom: var(--spacing-sm);
+    }
+    
+    /* Akkordeon Anpassungen */
+    .accordion-header {
+        padding: var(--spacing-sm);
+    }
+    
+    .accordion-content-inner {
+        padding: var(--spacing-sm);
+    }
+    
+    /* Footer */
     .footer-content {
         flex-direction: column;
         align-items: center;
@@ -667,24 +672,11 @@ textarea {
     }
 }
 
-/* Responsive Design */
-@media (max-width: 1200px) {
-    .accordion {
-        margin-left: 0;
-        transform: translateY(0);
-    }
-    
-    .faq-header {
-        flex-direction: column;
-    }
-    
-    .faq-title {
-        max-width: 100%;
-    }
-}
-
 @media (max-width: 692px) {
-    .hero, .about-wrapper, .contact {
+    /* Layout für kleine mobile Geräte */
+    .hero, 
+    .about-wrapper, 
+    .contact {
         flex-direction: column;
     }
     
@@ -708,17 +700,5 @@ textarea {
     .form-row {
         flex-direction: column;
         gap: var(--spacing-sm);
-    }
-}
-
-@media (max-width: 768px) {
-    :root {
-        --h1-size: 2.2rem;
-        --h2-size: 1.8rem;
-        --h3-size: 1.3rem;
-    }
-    
-    .hero-content, .contact-info, .contact-form {
-        padding: var(--spacing-lg);
     }
 }

@@ -9,8 +9,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Ephesis&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+    <!-- Alpine.js einbinden -->
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <script src="script.js" defer></script>
-    <script src="accordion.js" defer></script>
 </head>
 <body>
     
@@ -88,44 +89,73 @@
                 </div>
             </div>
             
-            <div class="accordion">
-                <div class="accordion-item">
-                    <button class="accordion-header">
+            <!-- Alpine.js Akkordeon -->
+            <div class="accordion" x-data="{ activePanel: null }">
+                <!-- Erstes Panel -->
+                <div class="accordion-item" :class="{ 'active': activePanel === 1 }">
+                    <button class="accordion-header" @click="activePanel = activePanel === 1 ? null : 1">
                         Das erste persönliche Gespräch
-                        <span class="accordion-icon">&#x276F;</span>
+                        <span class="accordion-icon" :class="{ 'rotated': activePanel === 1 }">&#x276F;</span>
                     </button>
-                    <div class="accordion-content">
-                        <p>Inhalt des ersten Gesprächs...</p>
+                    <div class="accordion-content" 
+                         x-ref="panel1" 
+                         :style="activePanel === 1 ? 
+                                `height: ${$refs.panel1.scrollHeight}px` : 
+                                'height: 0px'">
+                        <div class="accordion-content-inner">
+                            <p>Inhalt des ersten Gesprächs... Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nisl eget ultricies tincidunt, nisl nisl aliquam nisl, eget aliquam nisl nisl eget nisl. Nullam auctor, nisl eget ultricies tincidunt, nisl nisl aliquam nisl, eget aliquam nisl nisl eget nisl.</p>
+                        </div>
                     </div>
                 </div>
                 
-                <div class="accordion-item">
-                    <button class="accordion-header">
+                <!-- Zweites Panel -->
+                <div class="accordion-item" :class="{ 'active': activePanel === 2 }">
+                    <button class="accordion-header" @click="activePanel = activePanel === 2 ? null : 2">
                         So werde ich deine Situation analysieren
-                        <span class="accordion-icon">&#x276F;</span>
+                        <span class="accordion-icon" :class="{ 'rotated': activePanel === 2 }">&#x276F;</span>
                     </button>
-                    <div class="accordion-content">
-                        <p>Inhalt zur Situationsanalyse...</p>
+                    <div class="accordion-content" 
+                         x-ref="panel2" 
+                         :style="activePanel === 2 ? 
+                                `height: ${$refs.panel2.scrollHeight}px` : 
+                                'height: 0px'">
+                        <div class="accordion-content-inner">
+                            <p>Inhalt zur Situationsanalyse... Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nisl eget ultricies tincidunt, nisl nisl aliquam nisl, eget aliquam nisl nisl eget nisl.</p>
+                        </div>
                     </div>
                 </div>
                 
-                <div class="accordion-item">
-                    <button class="accordion-header">
+                <!-- Drittes Panel -->
+                <div class="accordion-item" :class="{ 'active': activePanel === 3 }">
+                    <button class="accordion-header" @click="activePanel = activePanel === 3 ? null : 3">
                         Das perfekte Konzept, nur für dich
-                        <span class="accordion-icon">&#x276F;</span>
+                        <span class="accordion-icon" :class="{ 'rotated': activePanel === 3 }">&#x276F;</span>
                     </button>
-                    <div class="accordion-content">
-                        <p>Inhalt zum Konzept...</p>
+                    <div class="accordion-content" 
+                         x-ref="panel3" 
+                         :style="activePanel === 3 ? 
+                                `height: ${$refs.panel3.scrollHeight}px` : 
+                                'height: 0px'">
+                        <div class="accordion-content-inner">
+                            <p>Inhalt zum Konzept... Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nisl eget ultricies tincidunt, nisl nisl aliquam nisl, eget aliquam nisl nisl eget nisl.</p>
+                        </div>
                     </div>
                 </div>
                 
-                <div class="accordion-item">
-                    <button class="accordion-header">
+                <!-- Viertes Panel -->
+                <div class="accordion-item" :class="{ 'active': activePanel === 4 }">
+                    <button class="accordion-header" @click="activePanel = activePanel === 4 ? null : 4">
                         Der freiwillige abschließende Schritt
-                        <span class="accordion-icon">&#x276F;</span>
+                        <span class="accordion-icon" :class="{ 'rotated': activePanel === 4 }">&#x276F;</span>
                     </button>
-                    <div class="accordion-content">
-                        <p>Inhalt zum abschließenden Schritt...</p>
+                    <div class="accordion-content" 
+                         x-ref="panel4" 
+                         :style="activePanel === 4 ? 
+                                `height: ${$refs.panel4.scrollHeight}px` : 
+                                'height: 0px'">
+                        <div class="accordion-content-inner">
+                            <p>Inhalt zum abschließenden Schritt... Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nisl eget ultricies tincidunt, nisl nisl aliquam nisl, eget aliquam nisl nisl eget nisl.</p>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -5,7 +5,8 @@
     --accent-color: #D09B43;
     --black: #151515;
     --white: #F9F9F9;
-    --light-gray: #EEEEEE;
+    --light-gray: #e8e8e8;
+    --main-color-rgb: 22, 46, 77;
     
     /* Typografie */
     --h1-font-size: clamp(32px, 3.45dvw, 48px);
@@ -29,6 +30,9 @@
     /* Container */
     --container-width: 1400px;
     --section-padding: 5rem;
+    
+    --accordion-timing: 0.3s;
+    --easing-smooth: cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 /* Grundlegende Resets und Styles */
@@ -143,7 +147,7 @@ header .container {
     height: 2px;
     width: 100%;
     background-color: var(--black);
-    transition: all 0.3s ease;
+    transition: all 0.3s var(--easing-smooth);
     border-radius: 2em;
 }
 
@@ -176,7 +180,7 @@ header .container {
     height: 100vh;
     background-color: var(--white);
     z-index: 1001;
-    transition: left 0.3s ease-in-out;
+    transition: left 0.3s var(--easing-smooth);
     box-shadow: 5px 0 15px rgba(0, 0, 0, 0.1);
     padding: 120px 40px 40px; /* Platz für Header oben */
 }
@@ -206,7 +210,7 @@ header .container {
     font-weight: 500;
     display: block;
     padding: var(--spacing-xs) 0;
-    transition: color 0.3s ease;
+    transition: color 0.3s var(--easing-smooth);
 }
 
 .mobile-nav a:hover {
@@ -364,6 +368,7 @@ header .container {
     margin-bottom: 0;
 }
 
+/* Akkordeon-Styles - Alpine.js Version */
 .accordion {
     display: flex;
     flex-direction: column;
@@ -375,6 +380,12 @@ header .container {
     background-color: var(--light-gray);
     border-radius: var(--border-radius-sm);
     overflow: hidden;
+    transition: box-shadow var(--accordion-timing) var(--easing-smooth);
+    margin-bottom: var(--spacing-sm);
+}
+
+.accordion-item.active {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .accordion-header {
@@ -387,15 +398,73 @@ header .container {
     justify-content: space-between;
     align-items: center;
     font-weight: 500;
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
 }
 
 .accordion-icon {
     transform: rotate(90deg);
+    transition: transform var(--accordion-timing) var(--easing-smooth);
+    font-size: 0.9em;
+    color: var(--main-color);
+}
+
+.accordion-icon.rotated {
+    transform: rotate(270deg);
 }
 
 .accordion-content {
-    padding: 0 var(--spacing-md) var(--spacing-md);
-    display: none;
+    background-color: #f0f0f0;
+    overflow: hidden;
+    height: 0;
+    transition: height var(--accordion-timing) var(--easing-smooth);
+}
+
+.accordion-content-inner {
+    padding: var(--spacing-md);
+    opacity: 0;
+    transform: translateY(-8px);
+    transition: 
+        opacity calc(var(--accordion-timing) * 0.8) var(--easing-smooth),
+        transform calc(var(--accordion-timing) * 0.8) var(--easing-smooth);
+}
+
+.accordion-item.active .accordion-content-inner {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: calc(var(--accordion-timing) * 0.2);
+}
+
+/* Innere Inhalte des Akkordeons */
+.accordion-content p {
+    margin: 0;
+    line-height: 1.6;
+}
+
+.accordion-content p + p {
+    margin-top: var(--spacing-sm);
+}
+
+/* Hover-Effekte für bessere UX */
+.accordion-header:hover {
+    background-color: rgba(0, 0, 0, 0.03);
+}
+
+.accordion-header:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(var(--main-color-rgb, 22, 46, 77), 0.3);
+}
+
+/* Akkordeon-Responsive-Anpassungen */
+@media (max-width: 768px) {
+    .accordion-header {
+        padding: var(--spacing-sm);
+    }
+    
+    .accordion-content-inner {
+        padding: var(--spacing-sm);
+    }
 }
 
 /* Contact Section */
@@ -407,6 +476,7 @@ header .container {
     max-width: var(--container-width);
     margin: 0 auto;
     overflow: hidden;
+    width: calc(100% - (var(--spacing-md) * 2));
 }
 
 .contact-info {
@@ -541,7 +611,7 @@ textarea {
 .footer-legal a {
     color: var(--white);
     text-decoration: none;
-    transition: color 0.3s ease;
+    transition: color 0.3s var(--easing-smooth);
 }
 
 .footer-legal a:hover {
@@ -563,7 +633,7 @@ textarea {
     border-radius: 50%;
     color: var(--white);
     text-decoration: none;
-    transition: all 0.3s ease;
+    transition: all 0.3s var(--easing-smooth);
 }
 
 .footer-social a:hover {

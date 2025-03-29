@@ -1,27 +1,34 @@
 :root {
-    /* BIRKENSTOCK COLOR PALETTE */
-    --main-color: #9F8B6E;
-    --accent-color: #327152;
-    --black: #151515;
-    --white: #F9F9F9;
-    --light-gray: #e8e8e8;
-    --main-color-rgb: 22, 46, 77;
+    /* BIRKENSTOCK COLOR PALETTE - ÜBERARBEITET */
+    --main-color: #D4C8B8; /* Wärmerer Sandton */
+    --main-color-dark: #B5A48E; /* Dunklerer Sandton für Kontraste */
+    --accent-color: #4A5D23; /* Natürlicheres Grün */
+    --black: #2D2A26; /* Wärmeres Schwarz */
+    --white: #F5F2ED; /* Natürlicheres Weiß */
+    --light-beige: #E8E0D5; /* Warmes Beige statt Hellgrau */
+    --deep-brown: #5D4B35; /* Tiefes Braun für Akzente */
+    --main-color-rgb: 212, 200, 184;
     
-    --h1-font-size: clamp(32px, 3.45dvw, 48px);
-    --h2-font-size: clamp(16px, 2.2dvw, 26px);
+    /* TYPOGRAFIE - LEICHT ANGEPASST */
+    --h1-font-size: clamp(30px, 3.2dvw, 44px);
+    --h2-font-size: clamp(16px, 2dvw, 24px);
     --h3-font-size: clamp(12px, 1.5dvw, 17px);
-    --p-font-size: clamp(13px, 1.5dvw, 17px);
-    --p-small-font-size: clamp(10px, 1.2dvw, 14px);
+    --p-font-size: clamp(13px, 1.4dvw, 16px);
+    --p-small-font-size: clamp(10px, 1.1dvw, 14px);
+    --letter-spacing: 0.03em;
     
+    /* ABSTÄNDE */
     --spacing-xs: 0.5rem;
     --spacing-sm: 1rem;
     --spacing-md: 2rem;
     --spacing-lg: 3rem;
     --spacing-xl: 5rem;
+    --section-spacing: 7rem; /* Zusätzlicher Abstand zwischen Sektionen */
     
-    --border-radius-sm: .4em;
-    --border-radius-md: 1.2em;
-    --border-radius-lg: 1.8em;
+    /* ABGERUNDETE ECKEN - REDUZIERT */
+    --border-radius-sm: .3em;
+    --border-radius-md: .6em;
+    --border-radius-lg: .9em;
     
     --container-width: 1400px;
     --accordion-timing: 0.3s;
@@ -56,55 +63,64 @@ body.no-scroll {
     padding: 0 var(--spacing-md);
 }
 
+/* TYPOGRAFIE ANPASSUNGEN */
 h1, h2, h3, h4, h5, h6 {
-    font-weight: 600;
-    line-height: 1.2;
+    font-weight: 500; /* Leichter für Birkenstock-Look */
+    line-height: 1.3;
+    letter-spacing: var(--letter-spacing);
 }
 
 h1 {
     font-size: var(--h1-font-size);
+    text-transform: uppercase;
+    font-weight: 600;
 }
 
 h2 {
     font-size: var(--h2-font-size);
+    margin-bottom: var(--spacing-md);
 }
 
 p {
     font-size: var(--p-font-size);
     font-weight: 300;
+    line-height: 1.7;
 }
 
 p.bold {
-    font-weight: 600;
+    font-weight: 500; /* Nicht zu fett für Birkenstock-Look */
 }
 
 img {
-        max-width: 100%;
-        height: auto;
+    max-width: 100%;
+    height: auto;
     display: block;
-    }
+}
     
 button {
     cursor: pointer;
     font-family: inherit;
-    }
+    letter-spacing: var(--letter-spacing);
+    transition: all 0.3s ease;
+}
     
 a:focus, button:focus {
     outline: 2px solid var(--accent-color);
     outline-offset: 2px;
-    }
-    
+}
+
+/* HEADER ANPASSUNGEN */
 header {
     padding: var(--spacing-md) 0;
     background-color: var(--white);
     z-index: 10001;
-    }
+}
     
 header .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    }
+}
 
 .logo {
     font-weight: bold;
@@ -114,6 +130,7 @@ header .container {
 
 .logo img {
     max-height: 30px;
+    height: 24px;
 }
 
 .menu-toggle {
@@ -124,8 +141,9 @@ header .container {
 }
 
 .menu-text {
-    font-weight: 600;
+    font-weight: 500; /* Leichter für Birkenstock-Look */
     margin-right: 10px;
+    letter-spacing: 0.05em;
 }
 
 .hamburger {
@@ -139,11 +157,11 @@ header .container {
 
 .hamburger span {
     display: block;
-    height: 2px;
+    height: 1.5px; /* Dünner für Birkenstock-Look */
     width: 100%;
     background-color: var(--black);
     transition: all 0.3s var(--easing-smooth);
-    border-radius: 2em;
+    border-radius: 0; /* Keine Rundungen für Birkenstock-Look */
 }
 
 .hamburger span.short {
@@ -175,7 +193,7 @@ header .container {
     background-color: var(--white);
     z-index: 1001;
     transition: left 0.3s var(--easing-smooth);
-    box-shadow: 5px 0 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 5px 0 15px rgba(0, 0, 0, 0.05);
     padding: 120px 40px 40px;
 }
 
@@ -195,20 +213,38 @@ header .container {
 
 .mobile-nav li {
     margin: 0;
+    position: relative;
 }
 
 .mobile-nav a {
     color: var(--black);
     text-decoration: none;
-    font-size: 1.25rem;
-    font-weight: 500;
+    font-size: 1.15rem;
+    font-weight: 400; /* Leichter für Birkenstock-Look */
     display: block;
     padding: var(--spacing-xs) 0;
     transition: color 0.3s var(--easing-smooth);
-    }
+    letter-spacing: 0.04em;
+}
 
 .mobile-nav a:hover {
     color: var(--accent-color);
+}
+
+.mobile-nav a:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 1px;
+    bottom: 0;
+    left: 50%;
+    background-color: var(--accent-color);
+    transition: all 0.3s ease;
+}
+
+.mobile-nav a:hover:after {
+    width: 30px;
+    left: calc(50% - 15px);
 }
 
 .menu-btn {
@@ -220,15 +256,30 @@ header .container {
     position: relative;
 }
 
+/* HERO SEKTION ANPASSUNGEN */
 .hero {
     background-color: var(--main-color);
-    color: var(--white);
+    color: var(--black); /* Dunkler Text auf hellem Hintergrund für Birkenstock */
     border-radius: var(--border-radius-lg);
     overflow: hidden;
     display: flex;
     max-width: var(--container-width);
     width: calc(100% - (var(--spacing-md) * 2));
-    margin: 0 auto var(--spacing-xl);
+    margin: 0 auto var(--section-spacing);
+    position: relative;
+}
+
+/* Subtile Textur für Birkenstock-Look */
+.hero:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%235d4b35' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
+    opacity: 0.5;
+    pointer-events: none;
 }
 
 .hero-content {
@@ -238,6 +289,8 @@ header .container {
     flex-direction: column;
     justify-content: center;
     gap: var(--spacing-md);
+    position: relative;
+    z-index: 1;
 }
 
 .hero-image {
@@ -253,6 +306,7 @@ header .container {
     height: 100%;
     object-fit: cover;
     border-radius: var(--border-radius-md);
+    box-shadow: 0 10px 30px rgba(93, 75, 53, 0.15); /* Weichere Schatten */
 }
 
 .cta-button {
@@ -261,10 +315,18 @@ header .container {
     border: none;
     padding: var(--spacing-sm) var(--spacing-md);
     border-radius: var(--border-radius-sm);
-    font-weight: 600;
+    font-weight: 500;
     margin-bottom: var(--spacing-md);
     align-self: flex-start;
     width: auto;
+    letter-spacing: 0.05em;
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-button:hover {
+    background-color: #3E4F1D; /* Dunkleres Grün beim Hover */
+    transform: translateY(-2px);
 }
 
 .features {
@@ -272,20 +334,34 @@ header .container {
     gap: var(--spacing-md);
     margin-top: var(--spacing-sm);
     padding-left: var(--spacing-md);
-    border-left: 1px solid var(--light-gray);
+    border-left: 1px solid rgba(93, 75, 53, 0.2); /* Subtilere Linie */
 }
 
 .feature {
     flex: 1;
+    position: relative;
+}
+
+.feature:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -10px;
+    width: 4px;
+    height: 4px;
+    background-color: var(--deep-brown);
+    border-radius: 50%;
+    opacity: 0.7;
 }
 
 .feature p {
     font-size: var(--p-small-font-size);
 }
 
+/* ABOUT SEKTION ANPASSUNGEN */
 .about-compact {
     max-width: var(--container-width);
-    margin: 0 auto var(--spacing-lg);
+    margin: 0 auto var(--section-spacing);
     padding: var(--spacing-md) 0;
 }
 
@@ -293,9 +369,24 @@ header .container {
     display: flex;
     align-items: center;
     gap: var(--spacing-md);
-    background-color: var(--light-gray);
+    background-color: var(--light-beige);
     border-radius: var(--border-radius-md);
     padding: var(--spacing-md);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Subtile Textur für Birkenstock-Look */
+.about-compact-wrapper:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%235d4b35' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
+    opacity: 0.4;
+    pointer-events: none;
 }
 
 .about-compact-image {
@@ -308,16 +399,30 @@ header .container {
     border-radius: 50%;
     object-fit: cover;
     border: 4px solid var(--white);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 20px rgba(93, 75, 53, 0.15);
 }
 
 .about-compact-content {
     flex: 1;
+    position: relative;
+    z-index: 1;
 }
 
 .about-compact-content h2 {
     margin-bottom: var(--spacing-xs);
-    color: var(--main-color);
+    color: var(--deep-brown);
+    position: relative;
+    display: inline-block;
+}
+
+.about-compact-content h2:after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 40px;
+    height: 2px;
+    background-color: var(--accent-color);
 }
 
 .about-compact-content p {
@@ -325,9 +430,10 @@ header .container {
     font-size: calc(var(--p-font-size) * 0.95);
 }
 
+/* FAQ/PROZESS SEKTION ANPASSUNGEN */
 .faq {
     max-width: var(--container-width);
-    margin: 0 auto var(--spacing-xl);
+    margin: 0 auto var(--section-spacing);
 }
 
 .faq .container {
@@ -344,6 +450,25 @@ header .container {
 .faq h3 {
     font-size: var(--h3-font-size);
     margin-bottom: 0;
+    color: var(--accent-color);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 400;
+}
+
+.faq h2 {
+    position: relative;
+    padding-bottom: var(--spacing-xs);
+}
+
+.faq h2:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 2px;
+    background-color: var(--main-color-dark);
 }
 
 .accordion {
@@ -354,15 +479,17 @@ header .container {
 }
 
 .accordion-item {
-    background-color: var(--light-gray);
+    background-color: var(--light-beige);
     border-radius: var(--border-radius-sm);
     overflow: hidden;
     transition: box-shadow var(--accordion-timing) var(--easing-smooth);
     margin-bottom: var(--spacing-sm);
+    border-left: 2px solid transparent;
 }
 
 .accordion-item.active {
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 12px rgba(93, 75, 53, 0.08);
+    border-left: 2px solid var(--accent-color);
 }
 
 .accordion-header {
@@ -378,13 +505,14 @@ header .container {
     cursor: pointer;
     position: relative;
     z-index: 1;
+    letter-spacing: 0.02em;
 }
 
 .accordion-icon {
     transform: rotate(90deg);
     transition: transform var(--accordion-timing) var(--easing-smooth);
     font-size: 0.9em;
-    color: var(--main-color);
+    color: var(--accent-color);
 }
 
 .accordion-icon.rotated {
@@ -392,7 +520,7 @@ header .container {
 }
 
 .accordion-content {
-    background-color: #f0f0f0;
+    background-color: rgba(255, 255, 255, 0.5);
     overflow: hidden;
     height: 0;
     transition: height var(--accordion-timing) var(--easing-smooth);
@@ -415,7 +543,7 @@ header .container {
 
 .accordion-content p {
     margin: 0;
-    line-height: 1.6;
+    line-height: 1.7;
 }
 
 .accordion-content p + p {
@@ -423,7 +551,7 @@ header .container {
 }
 
 .accordion-header:hover {
-    background-color: rgba(0, 0, 0, 0.03);
+    background-color: rgba(0, 0, 0, 0.02);
 }
 
 .accordion-header:focus {
@@ -431,15 +559,30 @@ header .container {
     box-shadow: 0 0 0 2px rgba(var(--main-color-rgb), 0.3);
 }
 
+/* KONTAKT SEKTION ANPASSUNGEN */
 .contact {
     background-color: var(--main-color);
-    color: var(--white);
+    color: var(--black); /* Dunkler Text auf hellem Hintergrund für Birkenstock */
     border-radius: var(--border-radius-lg);
     display: flex;
     max-width: var(--container-width);
     margin: 0 auto;
     overflow: hidden;
     width: calc(100% - (var(--spacing-md) * 2));
+    position: relative;
+}
+
+/* Subtile Textur für Birkenstock-Look */
+.contact:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%235d4b35' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
+    opacity: 0.5;
+    pointer-events: none;
 }
 
 .contact-info {
@@ -449,6 +592,24 @@ header .container {
     flex-direction: column;
     justify-content: center;
     gap: var(--spacing-sm);
+    position: relative;
+    z-index: 1;
+}
+
+.contact-info h2 {
+    position: relative;
+    padding-bottom: var(--spacing-xs);
+    color: var(--deep-brown);
+}
+
+.contact-info h2:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 2px;
+    background-color: var(--accent-color);
 }
 
 .contact-details {
@@ -459,11 +620,12 @@ header .container {
     display: flex;
     align-items: center;
     margin-bottom: var(--spacing-sm);
+    color: var(--deep-brown);
 }
 
 .contact-item i {
     margin-right: 10px;
-    color: var(--white);
+    color: var(--accent-color);
     width: 20px;
     text-align: center;
 }
@@ -474,13 +636,16 @@ header .container {
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
+    z-index: 1;
 }
 
 .contact-form {
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.2);
     padding: var(--spacing-md);
     border-radius: var(--border-radius-md);
     width: 100%;
+    border: 1px solid rgba(93, 75, 53, 0.1);
 }
 
 .form-row {
@@ -498,20 +663,29 @@ label {
     display: block;
     margin-bottom: var(--spacing-xs);
     font-size: var(--p-small-font-size);
+    color: var(--deep-brown);
+    letter-spacing: 0.02em;
 }
 
 input, textarea {
     width: 100%;
     padding: var(--spacing-sm);
-    background-color: rgba(255, 255, 255, 0.2);
-    border: none;
+    background-color: rgba(255, 255, 255, 0.5);
+    border: 1px solid rgba(93, 75, 53, 0.1);
     border-radius: var(--border-radius-sm);
-    color: var(--white);
+    color: var(--black);
+    transition: all 0.3s ease;
+}
+
+input:focus, textarea:focus {
+    border-color: var(--accent-color);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(74, 93, 35, 0.1);
 }
 
 input::placeholder, textarea::placeholder {
-    color: var(--white);
-    opacity: .5;
+    color: var(--black);
+    opacity: .4;
 }
 
 textarea {
@@ -525,15 +699,37 @@ textarea {
     border: none;
     padding: var(--spacing-sm) var(--spacing-md);
     border-radius: var(--border-radius-sm);
-    font-weight: 600;
+    font-weight: 500;
     width: 100%;
+    letter-spacing: 0.05em;
+    transition: all 0.3s ease;
 }
 
+.submit-button:hover {
+    background-color: #3E4F1D;
+    transform: translateY(-2px);
+}
+
+/* FOOTER ANPASSUNGEN */
 .footer {
-    background-color: var(--main-color);
+    background-color: var(--deep-brown);
     color: var(--white);
     padding: var(--spacing-lg) 0 var(--spacing-md);
-    margin-top: var(--spacing-xl);
+    margin-top: var(--section-spacing);
+    position: relative;
+}
+
+/* Subtile Textur für Birkenstock-Look */
+.footer:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
+    opacity: 0.1;
+    pointer-events: none;
 }
 
 .footer-content {
@@ -542,6 +738,8 @@ textarea {
     align-items: center;
     flex-wrap: wrap;
     margin-bottom: var(--spacing-md);
+    position: relative;
+    z-index: 1;
 }
 
 .footer-logo {
@@ -552,6 +750,8 @@ textarea {
 
 .footer-logo img{
     max-height: 40px;
+    height: 28px;
+    filter: invert(1);
 }
 
 .footer-links {
@@ -569,10 +769,27 @@ textarea {
     color: var(--white);
     text-decoration: none;
     transition: color 0.3s var(--easing-smooth);
+    position: relative;
+    letter-spacing: 0.02em;
+}
+
+.footer-legal a:after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: var(--main-color);
+    transition: width 0.3s ease;
+}
+
+.footer-legal a:hover:after {
+    width: 100%;
 }
 
 .footer-legal a:hover {
-    color: var(--accent-color);
+    color: var(--main-color);
 }
 
 .footer-social {
@@ -591,11 +808,30 @@ textarea {
     color: var(--white);
     text-decoration: none;
     transition: all 0.3s var(--easing-smooth);
+    position: relative;
+    overflow: hidden;
+}
+
+.footer-social a:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--accent-color);
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+    z-index: -1;
+}
+
+.footer-social a:hover:before {
+    transform: translateY(0);
 }
 
 .footer-social a:hover {
-    background-color: var(--accent-color);
     transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 .footer-copyright {
@@ -604,7 +840,31 @@ textarea {
     text-align: center;
     font-size: 0.9rem;
     opacity: 0.7;
+    position: relative;
+    z-index: 1;
 }
+
+/* NEUE KLASSE FÜR QUALITÄTSSIEGEL */
+.quality-badges {
+    display: flex;
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-md);
+}
+
+.quality-badge {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: var(--border-radius-sm);
+    font-size: var(--p-small-font-size);
+}
+
+.quality-badge i {
+    color: var(--accent-color);
+}
+
 /* Responsive Design - Desktop First */
 @media (max-width: 1200px) {
     /* FAQ/Accordion */
@@ -645,6 +905,11 @@ textarea {
     
     .about-compact-image {
         margin-bottom: var(--spacing-sm);
+    }
+    
+    .about-compact-content h2:after {
+        left: 50%;
+        transform: translateX(-50%);
     }
     
     /* Akkordeon Anpassungen */
@@ -701,5 +966,18 @@ textarea {
     .form-row {
         flex-direction: column;
         gap: var(--spacing-sm);
+    }
+    
+    .contact-info h2:after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    .contact-info {
+        text-align: center;
+    }
+    
+    .contact-item {
+        justify-content: center;
     }
 }

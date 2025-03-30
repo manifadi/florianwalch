@@ -173,7 +173,7 @@ header .container {
 }
 
 .menu-toggle.active .hamburger span:first-child {
-    transform: translate(0%, 410%) rotate(45deg);
+    transform: translate(0%, 600%) rotate(45deg);
 }
 
 .menu-toggle.active .hamburger span:nth-child(2) {
@@ -181,7 +181,7 @@ header .container {
 }
 
 .menu-toggle.active .hamburger span:last-child {
-    transform: translate(0%, -500%) rotate(-45deg);
+    transform: translate(0%, -600%) rotate(-45deg);
 }
 
 .mobile-menu {
@@ -340,18 +340,6 @@ header .container {
 .feature {
     flex: 1;
     position: relative;
-}
-
-.feature:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -10px;
-    width: 4px;
-    height: 4px;
-    background-color: var(--deep-brown);
-    border-radius: 50%;
-    opacity: 0.7;
 }
 
 .feature p {
@@ -621,6 +609,43 @@ header .container {
     align-items: center;
     margin-bottom: var(--spacing-sm);
     color: var(--deep-brown);
+}
+
+.contact-link {
+    color: var(--deep-brown);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.contact-link:hover {
+    color: var(--accent-color);
+}
+
+.contact-link:after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: var(--accent-color);
+    transition: width 0.3s var(--easing-smooth);
+}
+
+.contact-link:hover:after {
+    width: 100%;
+}
+
+/* Entfernt die Outline bei Fokus auf den Kontakt-Links */
+.contact-link:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+/* Entfernt auch die allgemeine Fokus-Outline für alle Links in der Kontaktsektion */
+.contact-details a:focus {
+    outline: none;
 }
 
 .contact-item i {
@@ -979,5 +1004,18 @@ textarea {
     
     .contact-item {
         justify-content: center;
+    }
+
+    .contact-item {
+        justify-content: center;
+    }
+    
+    .contact-link:after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    .contact-link:hover:after {
+        width: 80%;
     }
 }

@@ -45,40 +45,59 @@
 
     <section class="hero" id="home">
         <div class="hero-content">
-            <h1>FINANZIELLE KLARHEIT.<br>KOSTENLOS.<br>FÜR DICH!</h1>
+            <h1>FInanzielle Klarheit 
+                & Vorteile in 20 Minuten 
+                für dich!</h1>
             <p>Finanzen müssen kein Tabuthema sein! Mit Florian an deiner Seite kannst du Klarheit schaffen, Geld sparen und deine finanziellen Ziele erreichen. Egal, ob du deine Versicherungen optimieren, clever investieren oder einfach einen Überblick über deine Finanzen gewinnen möchtest – Florian zeigt dir, wie es geht.</p>
-            <button class="cta-button">Kostenloses Gespräch sichern!</button>
-            
-            <div class="features">
-                <div class="feature">
-                    <p class="bold">Erfahre echte Professionalität</p>
-                    <p>Ich bin ein unabhängiger Finanzexperte, der dir nicht nur hilft, Geld zu sparen, sondern auch alle komplexen Themen verständlich erklärt.</p>
-                </div>
-                <div class="feature">
-                    <p class="bold">24/7 Erreichbar</p>
-                    <p>Fragen zu deinen Finanzen? Ich bin jederzeit für dich erreichbar – 24/7 per E-Mail oder Kontaktformular.</p>
-                </div>
+            <div class="buttons">
+                <button class="cta-button">Kostenloses Gespräch sichern!</button>
+                <button class="cta-outline-button">Karriere machen!</button>
             </div>
         </div>
         <div class="hero-image">
             <img src="./assets/hero-image.jpg" alt="Beratungsgespräch">
         </div>
     </section>
-
-    <!-- Ersetzen Sie den bestehenden About-Bereich mit diesem kompakteren Design -->
-    <section class="about-compact" id="about">
+    
+    <section class="expertise" id="expertise">
         <div class="container">
-            <div class="about-compact-wrapper">
-                <div class="about-compact-image">
-                    <img src="./assets/florian-walch-image.jpeg" alt="Berater Portrait">
+            <div class="expertise-header">
+                <h3>Mein Fachwissen</h3>
+                <h2>Finanzwissen für deine Zukunft</h2>
+                <p>Als unabhängiger Finanzexperte biete ich dir fundiertes Wissen in diesen Bereichen:</p>
+            </div>
+            
+            <div class="bento-grid">
+                <div class="bento-item">
+                    <div class="bento-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h4>Vermögen</h4>
+                    <p>Gemeinsam planen wir Ihre finanzielle Zukunft, damit Sie sicher und entspannt für sich und ihre Familie vorsorgen können - Schritt für Schritt zum langfristigen Vermögensaufbau.</p>
                 </div>
-                <div class="about-compact-content">
-                    <h2>Freut mich dich kennen zu lernen!</h2>
-                    <p>Hallo, ich bin Florian – unabhängiger Finanzexperte mit einer Leidenschaft dafür, Menschen bei ihren finanziellen Herausforderungen zu unterstützen. Ich weiß, wie überwältigend das Thema Finanzen sein kann, und genau deshalb helfe ich dir, den Durchblick zu bekommen.
-
-                        Mein Ziel? Dir zu zeigen, wie du das Beste aus deinen Finanzen herausholst – sei es durch günstigere Versicherungen, bessere Konditionen oder clevere Investments. Gemeinsam schaffen wir eine solide Grundlage für deine finanzielle Zukunft.
-                        
-                        Vertrau auf meine Erfahrung und lass uns zusammenarbeiten, um deine Ziele zu erreichen.</p>
+                
+                <div class="bento-item">
+                    <div class="bento-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h4>Immobilien</h4>
+                    <p>Ihr Weg zum Eigenheim: Wir begleiten Sie von der ersten Idee bis zur Schlüsselübergabe und finden die perfekte Immobilie für Ihre Bedürfnisse.</p>
+                </div>
+                
+                <div class="bento-item">
+                    <div class="bento-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h4>Vertragsoptimierung</h4>
+                    <p>Wir durchleuchten Ihre Verträge und helfen Ihnen, Fixkosten zu senken, damit Sie mehr Geld für das Wesentliche haben.</p>
+                </div>
+                
+                <div class="bento-item">
+                    <div class="bento-icon">
+                        <i class="fas fa-piggy-bank"></i>
+                    </div>
+                    <h4>Finanzierung</h4>
+                    <p>Ob Eigenheim oder größere Anschaffungen - wir finden die passende Finanzierungslösung, die zu Ihrem Leben und Budget passt.</p>
                 </div>
             </div>
         </div>
@@ -98,7 +117,7 @@
                 <!-- Erstes Panel -->
                 <div class="accordion-item" :class="{ 'active': activePanel === 1 }">
                     <button class="accordion-header" @click="activePanel = activePanel === 1 ? null : 1">
-                        Das erste persönliche Gespräch
+                        Kostenloses & Unverbindliches Erstgespräch
                         <span class="accordion-icon" :class="{ 'rotated': activePanel === 1 }">&#x276F;</span>
                     </button>
                     <div class="accordion-content" 
@@ -115,7 +134,7 @@
                 <!-- Zweites Panel -->
                 <div class="accordion-item" :class="{ 'active': activePanel === 2 }">
                     <button class="accordion-header" @click="activePanel = activePanel === 2 ? null : 2">
-                        So werde ich deine Situation analysieren
+                        Analyse deiner Ist Situation und Planung Wünsche & Ziele
                         <span class="accordion-icon" :class="{ 'rotated': activePanel === 2 }">&#x276F;</span>
                     </button>
                     <div class="accordion-content" 
@@ -132,7 +151,7 @@
                 <!-- Drittes Panel -->
                 <div class="accordion-item" :class="{ 'active': activePanel === 3 }">
                     <button class="accordion-header" @click="activePanel = activePanel === 3 ? null : 3">
-                        Das perfekte Konzept, nur für dich
+                        Erarbeitung eines Persöhnlichen Konzeptes 
                         <span class="accordion-icon" :class="{ 'rotated': activePanel === 3 }">&#x276F;</span>
                     </button>
                     <div class="accordion-content" 
@@ -149,13 +168,32 @@
                 <!-- Viertes Panel -->
                 <div class="accordion-item" :class="{ 'active': activePanel === 4 }">
                     <button class="accordion-header" @click="activePanel = activePanel === 4 ? null : 4">
-                        Der freiwillige abschließende Schritt
+                        Persönliche Beratung
                         <span class="accordion-icon" :class="{ 'rotated': activePanel === 4 }">&#x276F;</span>
                     </button>
                     <div class="accordion-content" 
                          x-ref="panel4" 
                          :style="activePanel === 4 ? 
                                 `height: ${$refs.panel4.scrollHeight}px` : 
+                                'height: 0px'">
+                        <div class="accordion-content-inner">
+                            <p>Am Ende liegt alles in deiner Hand: Du entscheidest, ob und welche Schritte du umsetzen möchtest. Ich begleite dich dabei und sorge dafür, dass alles reibungslos abläuft.</p>
+                        </div>
+                    </div>
+                </div>
+
+
+                
+                <!-- Viertes Panel -->
+                <div class="accordion-item" :class="{ 'active': activePanel === 5 }">
+                    <button class="accordion-header" @click="activePanel = activePanel === 5 ? null : 5">
+                        Service
+                        <span class="accordion-icon" :class="{ 'rotated': activePanel === 5 }">&#x276F;</span>
+                    </button>
+                    <div class="accordion-content" 
+                         x-ref="panel5" 
+                         :style="activePanel === 5 ? 
+                                `height: ${$refs.panel5.scrollHeight}px` : 
                                 'height: 0px'">
                         <div class="accordion-content-inner">
                             <p>Am Ende liegt alles in deiner Hand: Du entscheidest, ob und welche Schritte du umsetzen möchtest. Ich begleite dich dabei und sorge dafür, dass alles reibungslos abläuft.</p>

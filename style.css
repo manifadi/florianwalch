@@ -258,15 +258,16 @@ header .container {
 
 /* HERO SEKTION ANPASSUNGEN */
 .hero {
+    position: relative;
+    width: calc(100% - (var(--spacing-md) * 2));
+    max-width: var(--container-width);
+    height: 84dvh;
+    margin: 0 auto var(--section-spacing);
     background-color: var(--main-color);
     color: var(--black); /* Dunkler Text auf hellem Hintergrund für Birkenstock */
     border-radius: var(--border-radius-lg);
-    overflow: hidden;
     display: flex;
-    max-width: var(--container-width);
-    width: calc(100% - (var(--spacing-md) * 2));
-    margin: 0 auto var(--section-spacing);
-    position: relative;
+    overflow: hidden;
 }
 
 /* Subtile Textur für Birkenstock-Look */
@@ -283,22 +284,29 @@ header .container {
 }
 
 .hero-content {
-    padding: var(--spacing-xl);
     flex: 1;
+    max-width: 100%;
+    padding: var(--spacing-lg);
     display: flex;
     flex-direction: column;
     justify-content: center;
     gap: var(--spacing-md);
     position: relative;
     z-index: 1;
+    transition: flex 0.7s var(--easing-smooth), opacity 0.2s var(--easing-smooth), padding 0.7s var(--easing-smooth), max-width 0.7s var(--easing-smooth);
+    transform-origin: left;
 }
 
 .hero-image {
+    position: relative;
+    overflow: hidden;
     flex: .85;
     padding: var(--spacing-sm);
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: flex 0.7s var(--easing-smooth);
+    cursor: pointer;
 }
 
 .hero-image img {
@@ -307,6 +315,19 @@ header .container {
     object-fit: cover;
     border-radius: var(--border-radius-md);
     box-shadow: 0 10px 30px rgba(93, 75, 53, 0.15); /* Weichere Schatten */
+    filter: blur(4px) brightness(-0.5);
+}
+
+/* Hover-Effekt - wenn über das Bild gehovert wird */
+body:has(.hero-image:hover) .hero-content {
+    flex: 0;
+    opacity: 0;
+    padding: 0;
+    max-width: 0%;
+}
+
+.hero-image:hover {
+    flex: 1;
 }
 
 .cta-button {
@@ -329,43 +350,92 @@ header .container {
     transform: translateY(-2px);
 }
 
-.features {
-    display: flex;
-    gap: var(--spacing-md);
-    margin-top: var(--spacing-sm);
-    padding-left: var(--spacing-md);
-    border-left: 1px solid rgba(93, 75, 53, 0.2); /* Subtilere Linie */
-}
-
-.feature {
-    flex: 1;
+.cta-outline-button{
+    background-color: rgba(221, 231, 200, 0);
+    color: var(--accent-color);
+    border: 1px solid var(--accent-color);
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--border-radius-sm);
+    font-weight: 500;
+    margin-bottom: var(--spacing-md);
+    align-self: flex-start;
+    width: auto;
+    letter-spacing: 0.05em;
     position: relative;
+    overflow: hidden;
 }
 
-.feature p {
-    font-size: var(--p-small-font-size);
+.cta-outline-button:hover {
+    background-color: rgba(221, 231, 200, 0.25);
+    transform: translateY(-2px);
 }
 
-/* ABOUT SEKTION ANPASSUNGEN */
-.about-compact {
+/* EXPERTISE/BENTO-GRID SEKTION */
+.expertise {
     max-width: var(--container-width);
     margin: 0 auto var(--section-spacing);
     padding: var(--spacing-md) 0;
 }
 
-.about-compact-wrapper {
-    display: flex;
-    align-items: center;
+.expertise-header {
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.expertise-header h3 {
+    font-size: var(--h3-font-size);
+    margin-bottom: 0;
+    color: var(--accent-color);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 400;
+}
+
+.expertise-header h2 {
+    position: relative;
+    padding-bottom: var(--spacing-sm);
+    margin-bottom: var(--spacing-sm);
+}
+
+.expertise-header h2:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 2px;
+    background-color: var(--accent-color);
+}
+
+.expertise-header p {
+    font-size: calc(var(--p-font-size) * 1.1);
+    max-width: 700px;
+    margin: 0 auto var(--spacing-md);
+    color: var(--deep-brown);
+}
+
+.bento-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 Items nebeneinander auf Desktop */
     gap: var(--spacing-md);
+}
+
+.bento-item {
     background-color: var(--light-beige);
     border-radius: var(--border-radius-md);
     padding: var(--spacing-md);
+    transition: all 0.3s var(--easing-smooth);
     position: relative;
     overflow: hidden;
+    border-left: 3px solid transparent;
 }
 
 /* Subtile Textur für Birkenstock-Look */
-.about-compact-wrapper:before {
+.bento-item:before {
     content: '';
     position: absolute;
     top: 0;
@@ -377,45 +447,48 @@ header .container {
     pointer-events: none;
 }
 
-.about-compact-image {
-    flex: 0 0 180px;
+.bento-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(93, 75, 53, 0.1);
 }
 
-.about-compact-image img {
-    width: 180px;
-    height: 180px;
+.bento-icon {
+    background-color: rgba(74, 93, 35, 0.1);
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
-    object-fit: cover;
-    border: 4px solid var(--white);
-    box-shadow: 0 4px 20px rgba(93, 75, 53, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: var(--spacing-sm);
+    transition: all 0.3s var(--easing-smooth);
 }
 
-.about-compact-content {
-    flex: 1;
-    position: relative;
-    z-index: 1;
-}
-
-.about-compact-content h2 {
-    margin-bottom: var(--spacing-xs);
-    color: var(--deep-brown);
-    position: relative;
-    display: inline-block;
-}
-
-.about-compact-content h2:after {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 40px;
-    height: 2px;
+.bento-item:hover .bento-icon {
     background-color: var(--accent-color);
 }
 
-.about-compact-content p {
-    margin-bottom: 0;
-    font-size: calc(var(--p-font-size) * 0.95);
+.bento-icon i {
+    font-size: 24px;
+    color: var(--accent-color);
+    transition: all 0.3s var(--easing-smooth);
+}
+
+.bento-item:hover .bento-icon i {
+    color: var(--white);
+}
+
+.bento-item h4 {
+    font-size: calc(var(--h4-font-size) * 1.1);
+    margin-bottom: var(--spacing-xs);
+    color: var(--deep-brown);
+    position: relative;
+}
+
+.bento-item p {
+    font-size: var(--p-font-size);
+    color: var(--text-color);
+    line-height: 1.6;
 }
 
 /* FAQ/PROZESS SEKTION ANPASSUNGEN */
@@ -626,15 +699,16 @@ header .container {
     content: '';
     position: absolute;
     bottom: -2px;
-    left: 0;
+    left: 50%;
     width: 0;
     height: 1px;
     background-color: var(--accent-color);
-    transition: width 0.3s var(--easing-smooth);
+    transition: width 0.3s var(--easing-smooth), left 0.3s var(--easing-smooth);
 }
 
 .contact-link:hover:after {
     width: 100%;
+    left: 0%;
 }
 
 /* Entfernt die Outline bei Fokus auf den Kontakt-Links */
@@ -892,6 +966,10 @@ textarea {
 
 /* Responsive Design - Desktop First */
 @media (max-width: 1200px) {
+    .bento-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
     /* FAQ/Accordion */
     .accordion {
         margin-left: 0;
@@ -920,6 +998,14 @@ textarea {
     .contact-info, 
     .contact-form {
         padding: var(--spacing-lg);
+    }
+
+    .bento-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .expertise-header {
+        padding: 0 var(--spacing-md);
     }
     
     /* Über mich Sektion */

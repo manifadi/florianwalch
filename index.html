@@ -182,9 +182,7 @@
                     </div>
                 </div>
 
-
-                
-                <!-- Viertes Panel -->
+                <!-- Fünftes Panel -->
                 <div class="accordion-item" :class="{ 'active': activePanel === 5 }">
                     <button class="accordion-header" @click="activePanel = activePanel === 5 ? null : 5">
                         Service
@@ -203,11 +201,11 @@
             </div>
         </div>
     </section>
-
+    
     <section class="contact" id="contact">
         <div class="contact-info">
             <h2>Buche dir jetzt deinen kostenlosen Termin</h2>
-            <p>Hast du Fragen oder möchtest direkt loslegen? Schreib mir einfach – ich melde mich schnellstmöglich bei dir. Gemeinsam finden wir heraus, wie ich dir helfen kann.</p>
+            <p>Hast du Fragen oder möchtest direkt loslegen? Wähle einfach einen passenden Termin aus und ich melde mich bei dir. Gemeinsam finden wir heraus, wie ich dir helfen kann.</p>
             
             <div class="contact-details">
                 <p class="contact-item">
@@ -226,29 +224,140 @@
         </div>
         
         <div class="contact-form-wrapper">
-            <form class="contact-form">
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="vorname">Vorname</label>
-                        <input type="text" id="vorname" placeholder="Max">
+            <form class="contact-form" id="stepForm">
+                <!-- Progress Bar -->
+                <div class="progress-container">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill"></div>
                     </div>
-                    <div class="form-group">
-                        <label for="nachname">Nachname</label>
-                        <input type="text" id="nachname" placeholder="Mustermann">
+                    <div class="progress-steps">
+                        <div class="step active" data-step="1">
+                            <div class="step-number">1</div>
+                            <div class="step-label">Persönliche Daten</div>
+                        </div>
+                        <div class="step" data-step="2">
+                            <div class="step-number">2</div>
+                            <div class="step-label">Termin</div>
+                        </div>
+                        <div class="step" data-step="3">
+                            <div class="step-number">3</div>
+                            <div class="step-label">Bestätigen</div>
+                        </div>
                     </div>
                 </div>
                 
-                <div class="form-group">
-                    <label for="email">E-Mail</label>
-                    <input type="email" id="email" placeholder="max.mustermann@example.com">
+                <!-- Step 1: Persönliche Informationen -->
+                <div class="form-step" id="step1">
+                    <h3>Persönliche Informationen</h3>
+                    <div class="form-group">
+                        <label for="vollername">Voller Name</label>
+                        <input type="text" id="vollername" placeholder="Max Mustermann" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">E-Mail</label>
+                        <input type="email" id="email" placeholder="max.mustermann@example.com" required>
+                    </div>
+                    
+                    <div class="form-buttons">
+                        <button type="button" class="next-button" id="toStep2">Weiter</button>
+                    </div>
                 </div>
                 
-                <div class="form-group">
-                    <label for="nachricht">Nachricht</label>
-                    <textarea id="nachricht" placeholder="Schreiben Sie uns..."></textarea>
+                <!-- Step 2: Datum und Uhrzeit -->
+                <div class="form-step hidden" id="step2">
+                    <h3>Datum und Uhrzeit</h3>
+                    
+                    <div class="form-group">
+                        <label for="calendar">Datum auswählen</label>
+                        <div class="calendar-container" id="calendar">
+                            <!-- Kalender wird per JavaScript generiert -->
+                            <div class="calendar-header">
+                                <button type="button" id="prevMonth" class="calendar-nav"><i class="fas fa-chevron-left"></i></button>
+                                <div id="currentMonth">April 2025</div>
+                                <button type="button" id="nextMonth" class="calendar-nav"><i class="fas fa-chevron-right"></i></button>
+                            </div>
+                            <div class="weekdays">
+                                <div>Mo</div>
+                                <div>Di</div>
+                                <div>Mi</div>
+                                <div>Do</div>
+                                <div>Fr</div>
+                                <div>Sa</div>
+                                <div>So</div>
+                            </div>
+                            <div class="calendar-days" id="calendarDays">
+                                <!-- Tage werden per JavaScript eingefügt -->
+                            </div>
+                            <input type="hidden" id="selectedDate" name="selectedDate" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="termin-zeit">Uhrzeit auswählen</label>
+                        <select id="termin-zeit" required>
+                            <option value="" disabled selected>Bitte Uhrzeit wählen</option>
+                            <option value="09:00">09:00 Uhr</option>
+                            <option value="10:00">10:00 Uhr</option>
+                            <option value="11:00">11:00 Uhr</option>
+                            <option value="14:00">14:00 Uhr</option>
+                            <option value="15:00">15:00 Uhr</option>
+                            <option value="16:00">16:00 Uhr</option>
+                            <option value="17:00">17:00 Uhr</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-buttons">
+                        <button type="button" class="back-button" id="backToStep1">Zurück</button>
+                        <button type="button" class="next-button" id="toStep3">Weiter</button>
+                    </div>
                 </div>
                 
-                <button type="submit" class="submit-button">Sende mir eine Nachricht</button>
+                <!-- Step 3: Bestätigen -->
+                <div class="form-step hidden" id="step3">
+                    <h3>Bestätigen</h3>
+                    
+                    <div class="summary-container">
+                        <div class="summary-item">
+                            <span class="summary-label">Name:</span>
+                            <span class="summary-value" id="summaryName"></span>
+                        </div>
+                        <div class="summary-item">
+                            <span class="summary-label">E-Mail:</span>
+                            <span class="summary-value" id="summaryEmail"></span>
+                        </div>
+                        <div class="summary-item">
+                            <span class="summary-label">Datum:</span>
+                            <span class="summary-value" id="summaryDate"></span>
+                        </div>
+                        <div class="summary-item">
+                            <span class="summary-label">Uhrzeit:</span>
+                            <span class="summary-value" id="summaryTime"></span>
+                        </div>
+                    </div>
+                    
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="datenschutz" required>
+                            <label for="datenschutz" class="checkbox-label">Ich stimme zu, dass meine Daten zur Terminvereinbarung verwendet werden dürfen. Die <a href="/datenschutz" target="_blank">Datenschutzerklärung</a> habe ich gelesen.</label>
+                        </div>
+                        
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="captcha" required>
+                            <label for="captcha" class="checkbox-label">Ich bin kein Roboter</label>
+                        </div>
+                        
+                        <div class="captcha-image">
+                            <i class="fas fa-shield-alt"></i> reCAPTCHA Sicherheitsüberprüfung
+                        </div>
+                    </div>
+                    
+                    <!-- Ersetze den form-buttons Bereich in Step 3 mit diesem Code -->
+                    <div class="form-buttons">
+                        <button type="button" class="back-button" id="backToStep2">Zurück</button>
+                        <button type="submit" class="next-button">Termin buchen</button>
+                    </div>
+                </div>
             </form>
         </div>
     </section>
